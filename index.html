@@ -1,58 +1,185 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Участники — Система силы</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#224C3C">
+<title>Система силы — тренировки, к которым хочется возвращаться</title>
+<meta name="description" content="Силовая тренировка на всё тело в группе до 10 человек: общая структура, свой рабочий вариант и нагрузка по тому, как идёт сегодня.">
+<meta property="og:title" content="Система силы">
+<meta property="og:description" content="Силовая тренировка на всё тело в группе до 10 человек — с нагрузкой, которую можно подстроить по ходу.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23224C3C'/%3E%3Ccircle cx='23' cy='23' r='4' fill='%23E2D6C0'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="top">
-    <div class="brand">Система силы</div>
-    <nav>
-      <a class="active" href="index.html">Участники</a>
-      <a href="streams.html">Потоки</a>
-      <a href="program.html">Программа</a>
-    </nav>
-  </header>
-  <main class="wrap">
-    <h1>Участники</h1>
-    <p class="notice">Показ интерфейса. Кнопки на этих страницах ничего не сохраняют.</p>
+<main class="page">
 
-    <div class="card">
-      <h2>Новый участник</h2>
-      <form class="row" action="#" onsubmit="return false">
-        <label>Имя
-          <input name="name" required>
-        </label>
-        <label>Поток
-          <select name="stream_id" required>
-            <option>Система силы · Поток 1</option>
-          </select>
-        </label>
-        <button type="submit">Создать</button>
-      </form>
+<!-- 1. Что это -->
+<header class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">Групповые тренировки</span>
+    <h1>Система силы<span class="dot">.</span></h1>
+    <p class="promise">Приходите как есть, находите свой рабочий вариант — и постепенно становитесь сильнее.</p>
+  </div>
+  <figure class="chat-wrap" aria-label="Короткий разговор с тренером">
+    <span class="chat-kicker">В зале это звучит так</span>
+    <div class="bot-panel">
+      <div class="bot-messages" id="scenario-chat" role="log" aria-live="polite" aria-label="Разговор с тренером"></div>
     </div>
+  </figure>
+</header>
 
-    <div class="list">
-      <div class="card">
-        <div class="item-title">Марина</div>
-        <div class="muted">Поток: Система силы · Поток 1</div>
-        <div>Telegram: ✓ @demo_marina</div>
-      </div>
-      <div class="card">
-        <div class="item-title">Олег</div>
-        <div class="muted">Поток: Система силы · Поток 1</div>
-        <div>Telegram: ○ не подключён</div>
-        <pre class="copy" id="invite-oleg">https://t.me/example_bot?start=preview</pre>
-        <button type="button" class="secondary" onclick="copyText(document.getElementById('invite-oleg').innerText)">Скопировать ссылку приглашения</button>
-      </div>
+<!-- 2. Результат для человека -->
+<section class="block" aria-labelledby="why-title">
+  <div class="head">
+    <span class="q">Что вы получите?</span>
+    <h2 id="why-title">Тренировки, которые можно сделать частью жизни</h2>
+  </div>
+  <ul class="why">
+    <li><span class="why-icon" data-icon="locate"></span><b>Спокойный старт</b><p>Не нужно заранее быть в форме, знать свой уровень или готовить программу. Приходите — и начинаете с понятного варианта.</p></li>
+    <li><span class="why-icon" data-icon="users"></span><b>Уверенность на тренировке</b><p>Вы не угадываете и не сравниваете себя с другими. Тренер помогает найти нагрузку, с которой можно работать спокойно.</p></li>
+    <li><span class="why-icon" data-icon="up"></span><b>Устойчивый прогресс</b><p>В тяжёлый день или после перерыва можно не бросать занятие, а поменять вариант. Так сила растёт в вашем темпе.</p></li>
+  </ul>
+
+</section>
+
+<!-- 3. Как одна тренировка подходит разным людям -->
+<section class="block" id="layers" aria-labelledby="layers-title">
+  <div class="head">
+    <span class="q">Почему это возможно в группе?</span>
+    <h2 id="layers-title">Тренировка общая, нагрузка — своя</h2>
+  </div>
+  <div class="layers">
+    <div class="layer layer-common">
+      <span class="layer-tag">У всей группы общее</span>
+      <ul class="common-list">
+        <li>тренер</li>
+        <li>структура занятия</li>
+        <li>последовательность силовых блоков</li>
+        <li>задача текущего блока</li>
+      </ul>
     </div>
-  </main>
-  <script>
-    function copyText(value) {
-      navigator.clipboard.writeText(value);
-    }
-  </script>
+    <div class="layer layer-own">
+      <span class="layer-tag">У вас может быть своё</span>
+      <ul class="levers">
+        <li><span class="l-icon" data-icon="weight"></span><b>Вес</b><small>легче или тяжелее</small></li>
+        <li><span class="l-icon" data-icon="variant"></span><b>Вариант</b><small>проще или сложнее</small></li>
+        <li><span class="l-icon" data-icon="amplitude"></span><b>Амплитуда</b><small>меньше или больше</small></li>
+        <li><span class="l-icon" data-icon="volume"></span><b>Объём</b><small>меньше или больше</small></li>
+        <li><span class="l-icon" data-icon="tempo"></span><b>Темп</b><small>спокойнее или быстрее</small></li>
+      </ul>
+    </div>
+  </div>
+  <p class="thesis">Вы занимаетесь вместе с группой, но не обязаны поспевать за чужой нагрузкой.</p>
+</section>
+
+<!-- 4. Цикл -->
+<section class="block" aria-labelledby="cycle-title">
+  <div class="head">
+    <span class="q">Как создаётся этот результат?</span>
+    <h2 id="cycle-title">Каждая тренировка начинается с вас сегодняшнего</h2>
+  </div>
+
+  <ol class="cycle">
+    <li class="phase">
+      <button class="phase-card" type="button" data-topic="point" aria-haspopup="dialog">
+        <span class="phase-top"><span class="num">1</span><span class="phase-icon" data-icon="locate"></span></span>
+        <span class="q">Спокойный старт</span>
+        <span class="phase-title">С того, что подходит сейчас</span>
+        <span class="phase-short">Знать свой уровень заранее не нужно. Тренер предложит вариант, с которого можно спокойно начать.</span>
+      </button>
+    </li>
+    <li class="phase">
+      <button class="phase-card" type="button" data-topic="watch" aria-haspopup="dialog">
+        <span class="phase-top"><span class="num">2</span><span class="phase-icon" data-icon="eye"></span></span>
+        <span class="q">Уверенность в процессе</span>
+        <span class="phase-title">Смотрим, как идёт</span>
+        <span class="phase-short">Важно не только сделать упражнение, но и то, как оно получается.</span>
+      </button>
+    </li>
+    <li class="phase phase-decide">
+      <div class="decide">
+        <span class="phase-top"><span class="num">3</span><span class="phase-icon" data-icon="split"></span></span>
+        <span class="q">Нагрузка не становится обязанностью</span>
+        <span class="phase-title">Решаем, что дальше</span>
+        <span class="phase-short">Можно оставить как есть, сделать шаг вперёд или поменять вариант. Всё это — обычная часть тренировки.</span>
+        <div class="branches" role="group" aria-label="Три решения">
+          <button class="branch" type="button" data-topic="keep" aria-haspopup="dialog"><span class="b-icon" data-icon="equal"></span><span><b>Оставить</b><small>подходит — продолжаем</small></span></button>
+          <button class="branch" type="button" data-topic="advance" aria-haspopup="dialog"><span class="b-icon" data-icon="up"></span><span><b>Шаг вперёд</b><small>идёт уверенно и легко</small></span></button>
+          <button class="branch" type="button" data-topic="shift" aria-haspopup="dialog"><span class="b-icon" data-icon="swap"></span><span><b>Поменять</b><small>пока не подходит</small></span></button>
+        </div>
+      </div>
+    </li>
+    <li class="phase">
+      <button class="phase-card" type="button" data-topic="again" aria-haspopup="dialog">
+        <span class="phase-top"><span class="num">4</span><span class="phase-icon" data-icon="history"></span></span>
+        <span class="q">Прогресс без гонки</span>
+        <span class="phase-title">Смотрим заново</span>
+        <span class="phase-short">Прошлая тренировка подскажет, с чего начать, но не обязывает делать так же.</span>
+      </button>
+    </li>
+  </ol>
+  <p class="return"><span class="r-label"><span data-icon="rotate"></span>На следующей тренировке — снова от того, как вы сегодня</span></p>
+  <p class="note">Если одно упражнение даётся тяжело, это ничего не говорит об остальных.</p>
+</section>
+
+<!-- 6. Роли -->
+<section class="block" aria-labelledby="roles-title">
+  <div class="head">
+    <span class="q">На кого можно опереться?</span>
+    <h2 id="roles-title">Тренер и вы — одна команда</h2>
+    <p>Тренер видит, как идёт работа. Вы чувствуете то, что со стороны не видно. Решение складывается из того и другого.</p>
+  </div>
+  <div class="roles">
+    <div class="role">
+      <span class="role-icon" data-icon="users"></span>
+      <h3>Тренер</h3>
+      <ul>
+        <li>ведёт тренировку для всей группы</li>
+        <li>предлагает, с чего начать</li>
+        <li>следит, как идёт работа</li>
+        <li>помогает изменить нагрузку или вариант</li>
+      </ul>
+    </div>
+    <div class="role">
+      <span class="role-icon" data-icon="user"></span>
+      <h3>Вы</h3>
+      <ul>
+        <li>пробуете предложенный вариант</li>
+        <li>прислушиваетесь, как он идёт</li>
+        <li>говорите, если тяжело</li>
+        <li>говорите, если легко</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="format-meta" aria-label="Формат тренировки">
+    <span>Силовая тренировка</span>
+    <span>Всё тело за занятие</span>
+    <span>Группа до 10 человек</span>
+  </aside>
+</section>
+
+<footer class="closing">
+  <p class="closing-main">Вы можете становиться сильнее <span>без гонки с собой.</span></p>
+  <p class="closing-sub">Ваш ориентир — то, как идёт сегодня, а не чужие веса или цифры прошлой тренировки.</p>
+</footer>
+</main>
+
+<dialog id="detail" aria-labelledby="detail-title">
+  <div class="d-inner">
+    <header class="d-head">
+      <span class="d-icon" id="detail-icon" aria-hidden="true"></span>
+      <div class="d-id"><span id="detail-kicker"></span><h2 id="detail-title"></h2></div>
+      <button class="close" id="close" type="button" aria-label="Закрыть"></button>
+    </header>
+    <div class="d-body" id="detail-body"></div>
+  </div>
+</dialog>
+<noscript><p class="noscript">Подробности к шагам открываются с включённым JavaScript.</p></noscript>
+<script src="app.js"></script>
 </body>
 </html>
