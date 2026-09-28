@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Участники — Система силы</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">Система силы</div>
+    <nav>
+      <a class="active" href="index.html">Участники</a>
+      <a href="streams.html">Потоки</a>
+      <a href="program.html">Программа</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <h1>Участники</h1>
+    <p class="notice">Показ интерфейса. Кнопки на этих страницах ничего не сохраняют.</p>
+
+    <div class="card">
+      <h2>Новый участник</h2>
+      <form class="row" action="#" onsubmit="return false">
+        <label>Имя
+          <input name="name" required>
+        </label>
+        <label>Поток
+          <select name="stream_id" required>
+            <option>Система силы · Поток 1</option>
+          </select>
+        </label>
+        <button type="submit">Создать</button>
+      </form>
+    </div>
+
+    <div class="list">
+      <div class="card">
+        <div class="item-title">Марина</div>
+        <div class="muted">Поток: Система силы · Поток 1</div>
+        <div>Telegram: ✓ @demo_marina</div>
+      </div>
+      <div class="card">
+        <div class="item-title">Олег</div>
+        <div class="muted">Поток: Система силы · Поток 1</div>
+        <div>Telegram: ○ не подключён</div>
+        <pre class="copy" id="invite-oleg">https://t.me/example_bot?start=preview</pre>
+        <button type="button" class="secondary" onclick="copyText(document.getElementById('invite-oleg').innerText)">Скопировать ссылку приглашения</button>
+      </div>
+    </div>
+  </main>
+  <script>
+    function copyText(value) {
+      navigator.clipboard.writeText(value);
+    }
+  </script>
+</body>
+</html>
